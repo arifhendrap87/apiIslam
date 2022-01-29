@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('worship_main_activity', {
     id: {
       autoIncrement: true,
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       references: {
         model: 'worship_main',
-        key: 'id'
+        key: 'ids'
       }
     },
     data: {
