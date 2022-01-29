@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('catetory_menu', {
+  return sequelize.define('knowledge_category', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -8,20 +8,16 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     slug: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'catetory_menu',
+    tableName: 'knowledge_category',
     timestamps: false,
     indexes: [
       {

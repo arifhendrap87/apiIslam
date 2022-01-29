@@ -1,7 +1,16 @@
 var express = require("express");
 var app = express();
+//const bodyParserErrorHandler = require('express-body-parser-error-handler')
 var bodyParser = require("body-parser");
+var methodOverride = require('method-override');
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(methodOverride());
+app.use(function (err, req, res, next) {
+    res.status(500).send(err);
+});
+
+//app.use(bodyParserErrorHandler());
 
 // include database config file
 const db = require("./app/config/db.config.js");
@@ -12,7 +21,9 @@ const db = require("./app/config/db.config.js");
 // });
 
 // include application routes
-require("./app/route/category_menu.route.js")(app);
+require("./app/route/menu.route.js")(app);
+require("./app/route/worshipMain.route.js")(app);
+require("./app/route/worshipMainActivity.route.js")(app);
 
 // Create & Listen Server
 var server = app.listen(8081, function () {

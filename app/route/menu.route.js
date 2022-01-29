@@ -1,12 +1,12 @@
 module.exports = function (app) {
 
-    const categoryMenu = require("../controller/category_menu.controller.js");
+    const menu = require("../controller/menu.controller.js");
 
     // // Create a new book
     // app.post("/api/book", book.create);
 
     // Retrieve all book
-    app.get("/api/categorymenu", categoryMenu.findAll);
+
 
     // // Retrieve a single book by Id
     // app.get("/api/books/:bookId", book.findByPk);
@@ -16,4 +16,7 @@ module.exports = function (app) {
 
     // // Delete a book with Id
     // app.delete("/api/books/:bookId", book.delete);
+
+    app.post("/api/menu", menu.findAll);
+    app.post("/api/menu/create", menu.create);
 };
